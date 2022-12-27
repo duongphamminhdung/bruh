@@ -1,3 +1,21 @@
+asgiref @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_cchykh5sgr/croots/recipe/asgiref_1661287542702/work
+attrs @ file:///home/conda/feedstock_root/build_artifacts/attrs_1671632566681/work
+certifi==2022.12.7
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
+Django @ file:///C:/Users/BUILDE~1/AppData/Local/Temp/abs_eeor5o9jj8/croots/recipe/django_1661292534510/work
+djangorestframework @ file:///home/conda/feedstock_root/build_artifacts/djangorestframework_1663854154474/work
+exceptiongroup @ file:///home/conda/feedstock_root/build_artifacts/exceptiongroup_1671811474537/work
+gunicorn==20.1.0
+iniconfig @ file:///home/conda/feedstock_root/build_artifacts/iniconfig_1603384189793/work
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1670530880680/work
+pluggy @ file:///home/conda/feedstock_root/build_artifacts/pluggy_1667232663820/work
+pytest==7.2.0
+pytest-socket @ file:///home/conda/feedstock_root/build_artifacts/pytest-socket_1643017485013/work
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1671365381334/work
+sqlparse @ file:///C:/b/abs_83jn6owfpc/croot/sqlparse_1668793499314/work
+tomli @ file:///home/conda/feedstock_root/build_artifacts/tomli_1644342247877/work
+tzdata @ file:///tmp/build/80754af9/python-tzdata_1611693927741/work
+wincertstore==0.2
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: win-64
