@@ -20,5 +20,6 @@ from player import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index.html'),
+    path("register", views.register_request, name="register"),
 
 ]

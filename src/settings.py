@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-@&$hb&@duh+=hpfuz-_37xup56a0-xc4=bhq$8hk&z+*qh=))v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bruh-production-90b1.up.railway.app']
+ALLOWED_HOSTS = ['bruh-production-90b1.up.railway.app', '127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'player.apps.PlayerConfig',
+
     ]
 
 MIDDLEWARE = [
@@ -48,9 +49,17 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+)
 
+CSRF_USE_SESSIONS = True
+CSRF_COOKIE_HTTPONLY = True
 ROOT_URLCONF = 'src.urls'
 
 TEMPLATES = [
@@ -66,6 +75,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
         },
+        
     },
 ]
 
