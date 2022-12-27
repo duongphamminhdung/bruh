@@ -5,4 +5,5 @@ from .models import Player
 
 def index(request):
     template = loader.get_template('index.html')
-    return HttpResponse(template.render(request))
+
+    return HttpResponse(template)
