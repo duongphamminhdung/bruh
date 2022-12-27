@@ -5,5 +5,7 @@ from .models import Player
 
 def index(request):
     template = loader.get_template('index.html')
-
-    return HttpResponse(template)
+    context = {
+        'content' : "Deployment Success",
+    }
+    return HttpResponse(template.render(context, request))
