@@ -5,7 +5,6 @@ from .models import Player, Room, lst
 from django.shortcuts import  render, redirect
 from django.contrib import messages
 import random
-# import create_socket
 
 def index(request):
 	prev = 0
@@ -45,3 +44,4 @@ def delete_room_id(requets, room_id):
 	used_room_id.remove(room_id)
 	room.delete()
 	return HttpResponseRedirect(reverse('index'))
+

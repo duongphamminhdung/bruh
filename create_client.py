@@ -1,13 +1,13 @@
 import socket
 import sys
 import threading
-def start_client():
+def run_client(id):
     # Create a TCP/IP socket 
     client = socket.socket()
     # Define host 
-    host = 'localhost'
+    host = '127.0.0.1'
     # define the communication port 
-    port = 8080
+    port = id+1024
     # Connect the socket to the port where the server is listening 
     server_address = ((host, port))
     print("connecting")

@@ -4,9 +4,9 @@ import sys
 def run_socket(id):
     sock = socket.socket()
     # Define host 
-    host = 'localhost'
+    host = '127.0.0.1'
     # define the communication port 
-    port = id
+    port = id+1024
     # Bind the socket to the port 
     sock.bind((host, port))
     # Listen for incoming connections 
