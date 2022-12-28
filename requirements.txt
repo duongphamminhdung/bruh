@@ -11,4 +11,3 @@ Django==4.0.4
 psycopg2==2.8.6
 sqlparse==0.4.2
 channels==3.0.4
-channels_redis==3.3.1
