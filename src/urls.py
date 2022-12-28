@@ -19,7 +19,8 @@ from player import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index.html'),
-    path("register", views.register_request, name="register"),
+    path('', views.index, name='index'),
+    path("createID/", views.create_room_id, name="create-room"),
+    path("createID/deleteID/<int:room_id>", views.delete_room_id, name="delete-room"),
 
 ]

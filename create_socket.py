@@ -1,12 +1,12 @@
 import socket
 import sys
 # Create a TCP/IP socket 
-def run_socket():
+def run_socket(id):
     sock = socket.socket()
     # Define host 
     host = 'localhost'
     # define the communication port 
-    port = 8080
+    port = id
     # Bind the socket to the port 
     sock.bind((host, port))
     # Listen for incoming connections 
