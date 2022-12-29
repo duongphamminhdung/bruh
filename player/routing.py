@@ -1,10 +1,12 @@
 from django.urls import path, re_path
 
-from . import consumers
-from channels.generic.websockets import WebsocketDemultiplexer
-from channels.routing import route_class
-from consumers import consumers
+from player import consumers
+from channels import route, route_class
 
+channel_routing = [
+    route_class(consumers.PlayerConsumer, path=r"^/ws/connect"),
+    route("websocket.connect", consumers.ws_connect, path=r"^/$"),
+]
 websocket_urlpatterns = [
-    path(r'connect/(?P<room_id>\w+)/$', consumers.PlayerConsumer.as_asgi()),
+    re_path(r'ws/connect/', consumers.PlayerConsumer.as_asgi()),
 ]

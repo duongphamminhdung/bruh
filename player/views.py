@@ -45,5 +45,3 @@ def delete_room_id(requets, room_id):
 	room.delete()
 	return HttpResponseRedirect(reverse('index'))
 
-def connect_room_id(request, room_id):
-	return render(request=request, template_name="connect.html", context={"room_id":room_id})

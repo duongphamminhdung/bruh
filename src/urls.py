@@ -22,6 +22,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path("createID/", views.create_room_id, name="create-room"),
     path("createID/deleteID/<int:room_id>", views.delete_room_id, name="delete-room"),
-    path('connect/<int:room_id>/', views.connect_room_id, name="chat_room"),
 
 ]
