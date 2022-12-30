@@ -3,8 +3,10 @@ import json
 
 class PlayerConsumer(WebsocketConsumer):
     
-    # def __init__(self, room_id):
-    #     self.room_id = room_id
+    def __init__(self):
+        room_id = self.scope["url_route"]["kwargs"]["room_id"]
+        self.room_id = room_id
+        print(room_id)
 
     def connect(self):
         self.accept()
