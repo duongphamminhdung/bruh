@@ -1,12 +1,16 @@
-from channels.generic.websockets import WebsocketConsumer
+from channels.generic.websocket import WebsocketConsumer
 import json
 
 class PlayerConsumer(WebsocketConsumer):
-    async def connect(self):
-        await self.accept()
+    
+    # def __init__(self, room_id):
+    #     self.room_id = room_id
+
+    def connect(self):
+        self.accept()
         print("connected")
         
         return
-    async def receive(self, text_data=None, bytes_data=None):
+    def receive(self, text_data=None, bytes_data=None):
         print("receive")
-        await self.send("received")
+        return super().receive(text_data)

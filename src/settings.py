@@ -35,6 +35,8 @@ ALLOWED_HOSTS = ['bruh-production-90b1.up.railway.app',
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,18 +45,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'player.apps.PlayerConfig',
-    'channels',
+
     ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -64,6 +67,7 @@ MIDDLEWARE_CLASSES = (
 
 CSRF_USE_SESSIONS = True
 CSRF_COOKIE_HTTPONLY = True
+CSRF_FAULURE_VIEW = True
 SECURE_SSL_REDIRECT = False
 ROOT_URLCONF = 'src.urls'
 
