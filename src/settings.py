@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['bruh-production-90b1.up.railway.app', 
                  '127.0.0.1',
                  'localhost',
+                '192.168.2.239'
                  ]
 
 
@@ -159,7 +160,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
+            "hosts": [('192.168.2.239', 6379)],
         },
     },
 }

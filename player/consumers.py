@@ -13,4 +13,5 @@ class PlayerConsumer(WebsocketConsumer):
         return
     def receive(self, text_data=None, bytes_data=None):
         print("receive")
+        self.send("received ")
         return super().receive(text_data)
