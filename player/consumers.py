@@ -12,6 +12,5 @@ class PlayerConsumer(WebsocketConsumer):
         
         return
     def receive(self, text_data=None, bytes_data=None):
-        print("receive")
-        self.send("received ")
+        print(self.room_id, "receive", text_data)
         return super().receive(text_data)
