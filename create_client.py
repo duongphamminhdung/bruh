@@ -1,31 +1,16 @@
-import socket
-import sys
-import threading
-def run_client(id):
-    # Create a TCP/IP socket 
-    client = socket.socket()
-    # Define host 
-    host = '127.0.0.1'
-    # define the communication port 
-    port = id+1024
-    # Connect the socket to the port where the server is listening 
-    server_address = ((host, port))
-    print("connecting")
-    client.connect(server_address)
-    # Send data 
-    while True:
-        try:
-            x = input('> ')
-            if "" != x:
-                print("Send: ", x)
-                client.send(x.encode('utf-8'))
-                if "DONE" == x:
-                    print("shutting down")
-                    break
-        except KeyboardInterrupt as k:
-            print("shutting down")
-            break
+from websocket import create_connection as C
+import json
 
-    client.close()
-
-# start_client()
+url = 'ws://127.0.0.1:8000/ws/connect/200'
+ws = C(url)
+content = {
+    'p1':{'x':127,
+        'y':140,
+        'money':12764,},
+    'p2':{'x':129,
+          'y':40,
+          'money':23441
+    }
+}
+ws.send(json.dumps(content))
+ws.recv()

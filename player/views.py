@@ -48,7 +48,3 @@ def delete_room_id(request, room_id):
 	room.delete()
 	return render(request=request, template_name="index.html", context={})
  
-@csrf_protect
-def connect_room_id(request, room_id):
-	run_socket(room_id)
-	return render(request=request, template_name="index.html", context={})

@@ -1,4 +1,4 @@
-from channels.generic.websocket import WebsocketConsumer
+from channels.generic.websocket import JsonWebsocketConsumer
 from .models import Room
 
 import json
@@ -7,7 +7,7 @@ used_room_id = []
 for room in Room.objects.all():
 	used_room_id.append(room.room_id)
 
-class PlayerConsumer(WebsocketConsumer):
+class PlayerConsumer(JsonWebsocketConsumer):
     
 
     def connect(self):
@@ -19,9 +19,16 @@ class PlayerConsumer(WebsocketConsumer):
         else:
             self.accept()
             print("connected")
+            self.channel_layer.group_add(str(self.room_id), self.channel_name)
+        
         print(self.room_id)
         
         return
-    def receive(self, text_data=None, bytes_data=None):
-        print(self.room_id, "receive", text_data)
-        return super().receive(text_data)
+    def receive_json(self, content):
+        print(self.room_id, "receive", content)
+        
+        self.channel_layer.group_send(str(self.room_id), "test")
+
+    def disconnect(self, close_code):
+        self.channel_layer.group_discard("users", self.channel_name)
+        print(f"Remove {self.channel_name} channel from users's group")
