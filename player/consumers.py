@@ -18,17 +18,18 @@ class PlayerConsumer(JsonWebsocketConsumer):
             print("id not created")
         else:
             self.accept()
-            print("connected")
-            self.channel_layer.group_add(str(self.room_id), self.channel_name)
-        
-        print(self.room_id)
-        
+            print("connected", self.channel_name, "to group", self.room_id)
+            self.channel_layer.group_add(str(self.room_id), self.channel_name)        
         return
+    
     def receive_json(self, content):
         print(self.room_id, "receive", content)
         
-        self.channel_layer.group_send(str(self.room_id), "test")
-
+        self.send_json("test")
+        print("sent response", self.room_id)
+        return
     def disconnect(self, close_code):
         self.channel_layer.group_discard("users", self.channel_name)
-        print(f"Remove {self.channel_name} channel from users's group")
+        print(f"Remove {self.room_id} channel from users's group")
+        return
+    
