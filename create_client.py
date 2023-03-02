@@ -2,8 +2,8 @@
 import websocket
 import json
 
-# url = 'ws://192.168.1.16:8000/ws/connect/200'
-url = 'ws://127.0.0.1:8000/ws/connect/100'
+url = 'ws://192.168.2.68:8080/ws/connect/200'
+# url = 'ws://127.0.0.1:8000/ws/connect/100'
 # ws = C(url)
 content = {
     'p1':{'x':127,
@@ -17,10 +17,13 @@ content = {
 
 
 def on_open(ws):
-    ws.send(json.dumps({"text":"Connected to server"}))
+    ws.send(json.dumps(content))
     
 def on_message(ws, message):
-    print("message")
+    print(message)
+    message = json.loads(message)
+    print(message["action"])
+    ws.send(json.dumps(content))
 
 def on_error(ws, error):
     print(error)

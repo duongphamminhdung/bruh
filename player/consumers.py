@@ -25,11 +25,10 @@ class PlayerConsumer(JsonWebsocketConsumer):
     def receive_json(self, content):
         print(self.room_id, "receive", content)
         
-        self.send_json("test")
+        self.send_json({'room id':str(self.room_id), 'action':"test"})
         print("sent response", self.room_id)
-        return
+        
     def disconnect(self, close_code):
         self.channel_layer.group_discard("users", self.channel_name)
-        print(f"Remove {self.room_id} channel from users's group")
-        return
+        print(f"Remove {self.channel_name} channel from {self.room_id} group")
     
